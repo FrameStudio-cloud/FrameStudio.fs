@@ -99,12 +99,9 @@
  *   USING (true);
  */
 
-// Placeholder export to avoid import errors
-
-
 import { createClient } from '@supabase/supabase-js'
 
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
-const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY
+const supabaseUrl = 'https://xttevicnnxfevygflnfe.supabase.co'
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh0dGV2aWNubnhmZXZ5Z2ZsbmZlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMxMjk2MDgsImV4cCI6MjA4ODcwNTYwOH0.Rtg1DPJueUn1D0IqdHgsHiXtE90Au9IPU3R6HaPVs1Y'
 
 export const supabase = createClient(supabaseUrl, supabaseKey)
