@@ -142,14 +142,14 @@ export function DetailPanel({ website, onClose }: DetailPanelProps) {
                       <ArrowUpRight size={16} />
                     </div>
                   </div>
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                  <div className="columns-1 lg:columns-2 gap-8">
                     {website.screenshots.map((screenshot, index) => (
                       <motion.div
                         key={index}
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: index * 0.1 }}
-                        className="border-2 border-black overflow-hidden group"
+                        className="border-2 border-black overflow-hidden group break-inside-avoid mb-8"
                       >
                         <div className="relative overflow-hidden">
                           <ImageWithFallback
