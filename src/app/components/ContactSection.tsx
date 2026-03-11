@@ -53,7 +53,7 @@ export function ContactSection() {
                 <Instagram size={24} />
                 <div>
                   <div className="text-xs uppercase tracking-wider mb-1 opacity-70">Instagram</div>
-                  <div className="text-xl font-semibold">@framestudio</div>
+                  <div className="text-xl font-semibold">@framestudio12</div>
                 </div>
               </a>
             </div>

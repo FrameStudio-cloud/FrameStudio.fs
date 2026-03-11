@@ -48,7 +48,7 @@ export function DetailPanel({ website, onClose }: DetailPanelProps) {
           >
             <div className="max-w-7xl mx-auto">
               {/* Header Section */}
-              <div className="border-b-2 border-black p-8 lg:p-12 sticky top-0 bg-white z-10">
+              <div className="border-b-2 border-black p-8 lg:p-12 top-0 bg-white z-10">
                 <div className="flex justify-between items-start gap-8">
                   <div className="flex-1">
                     <div className="flex items-center gap-4 mb-4">
