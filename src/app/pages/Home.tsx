@@ -191,7 +191,10 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-white" style={{ fontFamily: 'Inter, sans-serif' }}>
+    <div
+      className="min-h-screen bg-white"
+      style={{ fontFamily: "Inter, sans-serif" }}
+    >
       {/* Hero Header */}
       <header className="border-b-4 border-black bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-8 lg:py-12">
@@ -203,7 +206,10 @@ export default function Home() {
               className="flex items-center gap-3"
             >
               <div className="w-3 h-3 bg-black" />
-              <h1 className="text-3xl lg:text-4xl font-bold" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+              <h1
+                className="text-3xl lg:text-4xl font-bold"
+                style={{ fontFamily: "Space Grotesk, sans-serif" }}
+              >
                 FrameStudio
               </h1>
             </motion.div>
@@ -213,7 +219,10 @@ export default function Home() {
               transition={{ duration: 0.6 }}
               className="flex items-center gap-6"
             >
-              <a href="#contact" className="hidden lg:flex items-center gap-2 text-sm uppercase tracking-wider hover:translate-x-1 transition-transform">
+              <a
+                href="#contact"
+                className="hidden lg:flex items-center gap-2 text-sm uppercase tracking-wider hover:translate-x-1 transition-transform"
+              >
                 Contact <ArrowUpRight size={16} />
               </a>
               <div className="border-2 border-black p-2">
@@ -226,22 +235,32 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <h2 className="text-5xl lg:text-8xl font-bold mb-6 leading-none" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
-              Award-Winning<br />Digital Experiences
+            <h2
+              className="text-5xl lg:text-8xl font-bold mb-6 leading-none"
+              style={{ fontFamily: "Space Grotesk, sans-serif" }}
+            >
+              Highly Rated
+              <br />
+              Digital Experiences
             </h2>
             <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
               <p className="text-lg lg:text-xl text-gray-600 max-w-2xl">
-                We craft exceptional websites and digital products that push the boundaries of design and technology.
+                We craft exceptional websites and digital products that push the
+                boundaries of design and technology.
               </p>
               <div className="flex items-center gap-8 text-sm">
                 <div>
                   <div className="text-3xl font-bold">{websites.length}+</div>
-                  <div className="text-gray-600 uppercase tracking-wider">Projects</div>
+                  <div className="text-gray-600 uppercase tracking-wider">
+                    Projects
+                  </div>
                 </div>
                 <div className="w-px h-12 bg-black" />
                 <div>
-                  <div className="text-3xl font-bold">12+</div>
-                  <div className="text-gray-600 uppercase tracking-wider">Awards</div>
+                  <div className="text-3xl font-bold">2+</div>
+                  <div className="text-gray-600 uppercase tracking-wider">
+                    Years
+                  </div>
                 </div>
               </div>
             </div>
@@ -257,7 +276,9 @@ export default function Home() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="mb-12"
         >
-          <h3 className="text-sm uppercase tracking-[0.2em] font-semibold mb-2">Featured Work</h3>
+          <h3 className="text-sm uppercase tracking-[0.2em] font-semibold mb-2">
+            Featured Work
+          </h3>
           <div className="w-16 h-1 bg-black" />
         </motion.div>
 
@@ -291,26 +312,45 @@ export default function Home() {
             <div>
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-2 h-2 bg-black" />
-                <div className="text-xl font-bold" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+                <div
+                  className="text-xl font-bold"
+                  style={{ fontFamily: "Space Grotesk, sans-serif" }}
+                >
                   FrameStudio
                 </div>
               </div>
-              <p className="text-gray-600">Crafting digital excellence since 2020</p>
+              <p className="text-gray-600">
+                Crafting digital excellence since 2020
+              </p>
             </div>
             <div className="flex gap-8 text-sm uppercase tracking-wider">
-              <a href="#" className="hover:translate-x-1 transition-transform">About</a>
-              <a href="#" className="hover:translate-x-1 transition-transform">Services</a>
-              <a href="#contact" className="hover:translate-x-1 transition-transform">Contact</a>
-              <a href="/admin" className="hover:translate-x-1 transition-transform opacity-50 hover:opacity-100">Admin</a>
+              <a href="#" className="hover:translate-x-1 transition-transform">
+                About
+              </a>
+              <a href="#" className="hover:translate-x-1 transition-transform">
+                Services
+              </a>
+              <a
+                href="#contact"
+                className="hover:translate-x-1 transition-transform"
+              >
+                Contact
+              </a>
+              <a
+                href="/admin"
+                className="hover:translate-x-1 transition-transform opacity-50 hover:opacity-100"
+              >
+                Admin
+              </a>
             </div>
           </div>
         </div>
       </footer>
 
       {/* Detail Panel */}
-      <DetailPanel 
-        website={selectedWebsite} 
-        onClose={() => setSelectedWebsite(null)} 
+      <DetailPanel
+        website={selectedWebsite}
+        onClose={() => setSelectedWebsite(null)}
       />
     </div>
   );
