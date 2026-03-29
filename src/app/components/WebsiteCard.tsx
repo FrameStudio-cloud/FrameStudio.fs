@@ -23,7 +23,7 @@ export function WebsiteCard({ title, category, thumbnail, onClick, index }: Webs
           <ImageWithFallback 
             src={thumbnail} 
             alt={title}
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
           />
           <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
         </div>
