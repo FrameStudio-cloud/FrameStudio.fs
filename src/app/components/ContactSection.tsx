@@ -1,7 +1,36 @@
 import { motion } from "motion/react";
 import { Mail, Instagram, Send } from "lucide-react";
+import { useState } from "react";
+import { supabase } from "@/lib/supabase";
 
 export function ContactSection() {
+  const [loading, setLoading] = useState(false);
+
+   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+     e.preventDefault();
+     setLoading(true);
+
+     const formData = new FormData(e.currentTarget);
+
+     const { error } = await supabase.from("contact_submissions").insert([
+       {
+         name: formData.get("name") as string,
+         email: formData.get("email") as string,
+         project_type: formData.get("projectType") as string,
+         message: formData.get("message") as string,
+       },
+     ]);
+
+     setLoading(false);
+
+     if (error) {
+       alert("Error submitting form.");
+     } else {
+       alert("Message sent!");
+       e.currentTarget.reset();
+     }
+   };
+
   return (
     <section id="contact" className="border-t-4 border-black bg-white">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16 lg:py-24">
@@ -11,11 +40,17 @@ export function ContactSection() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-5xl lg:text-7xl font-bold mb-6 leading-none" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
-            Let's Create<br />Something Amazing
+          <h2
+            className="text-5xl lg:text-7xl font-bold mb-6 leading-none"
+            style={{ fontFamily: "Space Grotesk, sans-serif" }}
+          >
+            Let's Create
+            <br />
+            Something Amazing
           </h2>
           <p className="text-xl text-gray-600 mb-12 max-w-2xl">
-            Ready to transform your digital presence? Get in touch and let's discuss your project.
+            Ready to transform your digital presence? Get in touch and let's
+            discuss your project.
           </p>
         </motion.div>
 
@@ -29,22 +64,28 @@ export function ContactSection() {
             className="space-y-8"
           >
             <div>
-              <h3 className="text-sm uppercase tracking-[0.2em] font-semibold mb-6">Get in Touch</h3>
-              
+              <h3 className="text-sm uppercase tracking-[0.2em] font-semibold mb-6">
+                Get in Touch
+              </h3>
+
               {/* Email */}
-              <a 
+              <a
                 href="mailto:hello@framestudio.com"
                 className="group flex items-center gap-4 border-2 border-black p-6 hover:bg-black hover:text-white transition-colors mb-4"
               >
                 <Mail size={24} />
                 <div>
-                  <div className="text-xs uppercase tracking-wider mb-1 opacity-70">Email</div>
-                  <div className="text-xl font-semibold">hello@framestudio.com</div>
+                  <div className="text-xs uppercase tracking-wider mb-1 opacity-70">
+                    Email
+                  </div>
+                  <div className="text-xl font-semibold">
+                    hello@framestudio.com
+                  </div>
                 </div>
               </a>
 
               {/* Instagram */}
-              <a 
+              <a
                 href="https://instagram.com/framestudio"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -52,7 +93,9 @@ export function ContactSection() {
               >
                 <Instagram size={24} />
                 <div>
-                  <div className="text-xs uppercase tracking-wider mb-1 opacity-70">Instagram</div>
+                  <div className="text-xs uppercase tracking-wider mb-1 opacity-70">
+                    Instagram
+                  </div>
                   <div className="text-xl font-semibold">@framestudio12</div>
                 </div>
               </a>
@@ -61,7 +104,9 @@ export function ContactSection() {
             <div className="border-t-2 border-black pt-8">
               <p className="text-sm text-gray-600 mb-4">Business Hours</p>
               <p className="text-lg">Monday - Friday: 9:00 AM - 6:00 PM EST</p>
-              <p className="text-sm text-gray-600 mt-2">We typically respond within 24 hours</p>
+              <p className="text-sm text-gray-600 mt-2">
+                We typically respond within 24 hours
+              </p>
             </div>
           </motion.div>
 
@@ -72,19 +117,16 @@ export function ContactSection() {
             transition={{ duration: 0.6, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-sm uppercase tracking-[0.2em] font-semibold mb-6">Send a Message</h3>
-            
+            <h3 className="text-sm uppercase tracking-[0.2em] font-semibold mb-6">
+              Send a Message
+            </h3>
+
             {/* Note: This form is ready for Supabase integration */}
-            <form 
-              className="space-y-4"
-              onSubmit={(e) => {
-                e.preventDefault();
-                // TODO: Add Supabase form submission here
-                alert("Form ready for Supabase integration! Check the code comments.");
-              }}
-            >
+            <form className="space-y-4" onSubmit={handleSubmit}>
               <div>
-                <label htmlFor="name" className="block text-sm mb-2">Your Name</label>
+                <label htmlFor="name" className="block text-sm mb-2">
+                  Your Name
+                </label>
                 <input
                   type="text"
                   id="name"
@@ -96,7 +138,9 @@ export function ContactSection() {
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm mb-2">Email Address</label>
+                <label htmlFor="email" className="block text-sm mb-2">
+                  Email Address
+                </label>
                 <input
                   type="email"
                   id="email"
@@ -108,7 +152,9 @@ export function ContactSection() {
               </div>
 
               <div>
-                <label htmlFor="projectType" className="block text-sm mb-2">Project Type</label>
+                <label htmlFor="projectType" className="block text-sm mb-2">
+                  Project Type
+                </label>
                 <select
                   id="projectType"
                   name="projectType"
@@ -126,7 +172,9 @@ export function ContactSection() {
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm mb-2">Project Details</label>
+                <label htmlFor="message" className="block text-sm mb-2">
+                  Project Details
+                </label>
                 <textarea
                   id="message"
                   name="message"
@@ -136,17 +184,32 @@ export function ContactSection() {
                   placeholder="Tell us about your project..."
                 />
               </div>
-
               <button
+                type="submit"
+                disabled={loading}
+                className="w-full border-2 border-black px-8 py-4 font-semibold hover:bg-black hover:text-white transition-colors flex items-center justify-center gap-2 group"
+              >
+                {loading ? "Sending..." : "Send Message"}
+                <Send
+                  size={20}
+                  className="group-hover:translate-x-1 transition-transform"
+                />
+              </button>
+
+              {/* <button
                 type="submit"
                 className="w-full border-2 border-black px-8 py-4 font-semibold hover:bg-black hover:text-white transition-colors flex items-center justify-center gap-2 group"
               >
                 Send Message
-                <Send size={20} className="group-hover:translate-x-1 transition-transform" />
-              </button>
+                <Send
+                  size={20}
+                  className="group-hover:translate-x-1 transition-transform"
+                />
+              </button> */}
 
               <p className="text-xs text-gray-600 mt-4">
-                By submitting this form, you agree to our privacy policy and terms of service.
+                By submitting this form, you agree to our privacy policy and
+                terms of service.
               </p>
             </form>
           </motion.div>
